@@ -1,0 +1,352 @@
+/* globals from epidoc 8.18 */
+/* additions by emmanuelle morlock */
+/* 
+* Revisions :
+*       2014-09-10
+* */
+
+/* Place this .css file in the same folder as your .html files.*/
+
+span.yellow{
+    background:yellow;
+}
+
+*[lang = "la"]
+{
+    font-family:"GentiumAlt", "Gentium", "Palatino Linotype", "Palatino", "Times New Roman", "Times", "Arial Unicode MS", serif;
+}
+
+*[lang = "grc"]
+{
+    font-family:"Lucida Grande", "Arial Unicode MS", "Galilee Unicode Gk", "New Athena Unicode", "Athena Unicode", 
+"Palatino Linotype", "Titus Cyberbit Basic", "Cardo", "Vusillus Old Face", "Alphabetum", "Galatia SIL", 
+"Code 2000", "GentiumAlt", "Gentium", "Minion Pro", "GeorgiaGreek", "Vusillus Old Face Italic", 
+"Everson Mono", "Aristarcoj", "Porson", "Legendum", "Aisa Unicode", "Hindsight Unicode", "Caslon", 
+"Verdana", "Tahoma";
+}
+
+body
+{
+    font-size:100%;
+}
+
+
+dl.iospe
+{
+    font-family:arial, helvetica, sans-serif;
+    font-size:13px;
+    margin-bottom:15px;
+    margin-top:15px;
+    padding-left:165px;
+    padding-top:5px;
+}
+
+dl.iospe dt
+{
+    float:left;
+    font-size:13px;
+    font-weight:bold;
+    color:rgb(51, 51, 51);
+    max-width:165px;
+    vertical-align:baseline;
+    width:165px;
+}
+
+dl.iospe dd
+{
+    font-size:13px;
+    margin-left:165px;
+    vertical-align:baseline;
+}
+
+div#edition.iospe
+{
+    margin-left:100px;
+}
+
+div.iospe
+{
+    margin-left:165px;
+}
+
+/* ajouts iglouvre*/
+
+div#edition,
+div#apparatus,
+div#commentary,
+div#translation,
+div#bibliogrphy
+{
+    margin-left:auto;
+    margin-right:auto;
+    text-align:left;
+    background:#f9f9f9;
+}
+
+div.textpart
+{
+    width:32em;
+    line-height:1.6em;
+    background:white;
+    border:1px solid #C3C7C7;
+    padding:1.6em;
+    font-size:1.125em;
+
+}
+
+h4.slimmer
+{
+    margin-bottom:-0.5em;
+}
+
+h3.iospe
+{
+    color:rgb(40, 80, 114);
+    float:left;
+    font-family:arial, helvetica, sans-serif;
+    font-size:125%;
+    max-width:165px;
+    margin-top:0;
+    padding-top:0;
+}
+
+h4.iospe
+{
+    font-family:arial, helvetica, sans-serif;
+    font-size:13px;
+    color:rgb(51, 51, 51);
+    max-width:165px;
+    width:165px;
+}
+
+.author
+{
+    font-variant:small-caps;
+}
+
+.italic
+{
+    font-style:italic;
+}
+
+.latinnum
+{
+    border-top:thin black solid;
+}
+
+.linenumber
+{
+    left:-4em;
+    padding-right:0.2em;
+    position:absolute;
+}
+
+.linenumberbroken
+{
+    left:-4em;
+    padding-right:0.2em;
+    position:absolute;
+    color:red;
+    text-decoration:blink;
+}
+
+.milestoneNumber
+{
+    position:absolute;
+    right:1em;
+    color:red;
+    color:rgb(231, 144, 15);
+}
+
+.note
+{
+    font-style:normal;
+}
+
+.petraeligature
+{
+    text-decoration:underline;
+}
+
+.previouslyread
+{
+    text-decoration:underline;
+}
+.ref{
+    color:red;
+}
+.refLine{
+    color:green;
+}
+.romain
+{
+    font-variant:normal;
+}
+
+.section
+{
+    color:red;
+    color:#905;
+    color:rgb(231, 144, 15);
+}
+
+
+
+
+.supraline
+{
+    border-top:thin black solid;
+}
+
+
+
+
+
+.textpart
+{
+    left:6em;
+    line-height:1.4;
+    margin-top:8px;
+    margin-bottom:8px;
+    position:relative;
+    padding-right:2em;
+    font-size:1em;
+}
+
+.textpartnumber
+{
+    padding-right:0.2em;
+    padding-top:1.6em;
+    display:block;
+    font-weight:bold;
+    position:relative;
+    left:10em;
+    font-size:2em;
+}
+
+.title
+{
+    font-style:italic;
+}
+
+.underline
+{
+    text-decoration:underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* tooltip < from http://www.menucool.com/tooltip/css-tooltip /*/
+/*
+ * <a class="tooltip" href="#">
+ * <span class="milestoneNumber" id="A-VI">VI</span>
+ *      <span class="info">
+ *          <strong>Décret honorifique pour un citoyen de Pergée</strong>
+ *          <p class="translation">lorem ipsum</p>
+ *          <p>dolor sit amet</p>
+*       </span>
+ * </a>
+ * 
+ */
+
+
+
+
+a.tooltip
+{
+    outline:none;
+    position:absolute;
+    right:1.6em;
+    text-decoration:none;
+    color:#404040;
+    font-family:Avenir, Helvetica Neue, Arial, sans-serif;
+}
+
+span.g a.tooltip
+{
+    position:inherit;
+    font-family:inherit;
+}
+
+
+#edition span.g a.tooltip
+{
+    background-color:#D3D3D3;
+}
+
+a.tooltip strong
+{
+    padding:.5em 0;
+    display:block;
+    color:#905;
+}
+
+a.tooltip p
+{
+    font-style:italic;
+    padding:.25em;
+    margin:0;
+}
+
+a.tooltip p.translation
+{
+    font-style:normal;
+    color:#404040;
+}
+
+a.tooltip:hover
+{
+    text-decoration:none;
+}
+
+a.tooltip span.info
+{
+    z-index:10;
+    display:none;
+    padding:14px 20px;
+    margin-top:-30px;
+    margin-left:28px;
+    margin-left:0;
+    width:240px;
+    width:400px;
+    line-height:16px;
+    line-height:1.2em;
+    font-size:0.875em;
+
+}
+
+
+
+a.tooltip:hover span.info
+{
+    display:inline;
+    position:absolute;
+    color:#111;
+    border:1px solid #DCA;
+    border:1px solid #690;
+    background:#fffAF0;
+    background:#f5f2f0;
+
+}
+
+
+
+/*CSS3 extras*/
+
+a.tooltip span.handNote
+{
+    border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    -moz-box-shadow:5px 5px 8px #ccc;
+    -webkit-box-shadow:5px 5px 8px #ccc;
+    box-shadow:5px 5px 8px #CCC;
+}

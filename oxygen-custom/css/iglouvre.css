@@ -1,0 +1,832 @@
+@namespace xml "http://www.w3.org/XML/1998/namespace";
+@namespace oxy url('http://www.oxygenxml.com/extensions/author');
+
+
+@import "global.css";
+
+
+/* mettre les atributs */
+/* régler les textArea */
+/*  gestion des attributs avec namespace : content:attr(*|id) par ex */
+/*  une bordure ou espace est héritée aux éléments enfants (réglage de l'interlignage) */
+/* mettre liste déroulante respStmt > resp == ODD */
+/* point fin publicationStmt - référence projet anr entre parentheses*/
+/* confirmee origPlace@type */
+
+
+oxy|document {
+    xbackground-image:url("");
+}
+oxy|reference[comments]:before {
+  content: "Comments: " attr(comments) !important;  
+}
+
+image{
+    display:block;
+    content: attr(href, url);
+    margin-left:2em;
+}
+
+/* -------------------------------------------------*/
+/*        teiHeader                                 */
+/* -------------------------------------------------*/
+TEI
+{
+	background-color:#404040; /* gris foncé */
+	font-family:arial, helvetica, sans-serif;
+	font-size:85%;
+}
+
+TEI:before
+{
+	padding-top:2em;
+	content:"Identifiant : " attr(*|id);
+}
+
+/* ----------------------------- Blocs principaux */
+
+/* ----- layout*/
+
+fileDesc,
+profileDesc,
+encodingDesc
+{
+	display:block;
+	background-color:#00ACE9; /* bleu */
+	margin:2em;
+	padding:1em;
+	line-height:1em;
+	font-size:.85em;
+}
+
+titleStmt,
+publicationStmt,
+sourceDesc
+{
+	display:block;
+	margin:1em;
+	padding:1em;
+	background-color:#F6F6E8; /* beige */
+	width:100%;
+}
+
+publicationStmt > *
+{
+	padding-left:120px;
+}
+
+/* ----- Intitulés */
+
+fileDesc:before,
+profileDesc:before,
+encodingDesc:before
+{
+	display:block;
+	color:white;
+	font-weight:bold;
+	margin:.0;
+	padding:.75em;
+}
+
+titleStmt:before,
+publicationStmt:before,
+sourceDesc:before
+{
+	display:block;
+	margin:0;
+	padding:.75em;
+	font-size:.85em;
+	color:#D43F3F;
+
+}
+
+sourceDesc:before
+{
+	padding:0;
+}
+
+/* intitulés*/
+
+fileDesc:before
+{
+	content:"fileDesc : Description du fichier XML/Epidoc";
+}
+
+profileDesc:before
+{
+	content:"profileDesc";
+}
+
+encodingDesc:before
+{
+	content:"encodingDesc";
+}
+
+titleStmt:before
+{
+	content:"titleStmt\A ";
+}
+
+publicationStmt:before
+{
+	content:"publicationStmt\A ";
+}
+
+sourceDesc:before
+{
+	content:"sourceDesc ";
+}
+
+
+/* ----------------------------- titleStmt */
+
+/* titre */
+
+title:before
+{
+	content:
+	oxy_label(text, "Titre : ", styles, "@import 'labels.css';")
+ oxy_textArea(edit, '#text', rows, 2, columns, 50) "\A ";
+}
+/* Editeur(s) scientifique(s) */
+
+respStmt > resp:before
+{
+	content:
+	oxy_label(text, "Rôle : ", styles, "@import 'labels.css';")
+ oxy_textfield(edit, "#text", columns, 40) "\A ";
+}
+
+respStmt > persName forename:before
+{
+	content:
+	oxy_label(text, "Prénom : ", styles, "@import 'labels.css';")
+ oxy_textfield(edit, "#text", columns, 30) "\A ";
+}
+
+respStmt > persName surname:before
+{
+	content:
+	oxy_label(text, "Nom : ", styles, "@import 'labels.css';")
+ oxy_textfield(edit, "#text", columns, 30) "\A ";
+}
+
+/* boutons */
+
+respStmt:hover:after
+{
+	content:
+	oxy_editor(type, button, actionID, 'add.respStmt', color, blue, transparent, true, fontInherit, true, style, "@import 'buttons.css';")
+ oxy_editor(type, button, actionID, 'del.respStmt', color, green, transparent, true, fontInherit, true, style, "@import 'buttons.css';") "\A ";
+}
+
+/* --------- sourceDesc */
+
+msDesc:before
+{
+	content:
+	oxy_label(text, "Structure du support : ", styles, "@import 'labels.css';")
+ oxy_popup(
+columns, 10, 
+edit, "@type", 
+selectionMode, single, 
+values, "unique, fragment, composite");
+}
+/* Intitulés seuls*/
+
+msIdentifier:before,
+msContents:before,
+msPart:before,
+physDesc:before,
+history:before
+{
+	display:block;
+	padding-top:1em;
+	content:
+	oxy_label(text, oxy_name(), styles, "@import 'labels-group.css';");
+}
+
+msIdentifier,
+msContents,
+msPart,
+physDesc,
+history
+{
+	background-color:#FEFEFA /* baby powder */;
+	background-color:#F5F5F5 /* white smoke */;
+	margin:1em;
+}
+
+repository:before
+{
+	content:
+	oxy_label(text, "Repository : ", styles, "@import 'labels.css';");
+}
+
+msIdentifier > idno:before
+{
+	display:block;
+	content:
+	oxy_label(text, "Idno : ", styles, "@import 'labels.css';")
+ oxy_textfield(edit, "#text", columns, 10);
+}
+
+msIdentifier > msName:before
+{
+	display:block;
+	content:
+	oxy_label(text, "Nom  : ", styles, "@import 'labels.css';")
+ oxy_textfield(edit, "#text", columns, 30);
+}
+
+
+altIdentifier:before
+{
+	content:
+	oxy_label(text, oxy_name(), styles, "@import 'labels.css';");
+}
+
+
+altIdentifier > idno:before
+{
+	content:
+	oxy_label(text, "Idno : ", styles, "@import 'labels-retrait.css';")
+ oxy_textfield(edit, "#text", columns, 10) "\A ";
+
+}
+
+msIdentifier altIdentifier > note:before
+{
+	content:
+	oxy_label(text, "Note sur l'idno : ", styles, "@import 'labels-retrait.css';")
+ oxy_textArea(edit, '#text', rows, 2, columns, 50) "\A ";
+}
+
+/* boutons */
+
+altIdentifier:hover:after
+{
+	content:
+	oxy_editor(type, button, actionID, 'add.altIdentifier', color, blue, transparent, true, fontInherit, true, style, "@import 'buttons.css';")
+ oxy_editor(type, button, actionID, 'del.altIdentifier', color, green, transparent, true, fontInherit, true, style, "@import 'buttons.css';") "\A ";
+}
+
+/* msContent*/
+
+msContents > msItem:before
+{
+	content:
+	oxy_label(text, oxy_name(), styles, "@import 'labels.css';")
+ oxy_textfield(edit, "@xml:id", columns, 20) "\A ";
+
+}
+
+msContents > msItem > locus:before,
+layoutDesc > layout > locus:before
+{
+	content:
+	oxy_label(text, oxy_name(), styles, "@import 'labels.css';")
+ oxy_combobox(edit, "@target", columns, 20) "\A ";
+
+}
+
+msContents > title:before
+{
+	content:
+	oxy_label(text, "Titre :", styles, "@import 'labels.css';")
+ oxy_textArea(edit, '#text', contentType, 'text/xml', rows, 2, columns, 50);
+}
+
+msContents > bibl:before
+{
+	content:
+	oxy_label(text, oxy_name(), styles, "@import 'labels.css';")
+ oxy_textfield(edit, "#text", columns, 30) "\A ";
+}
+
+/* boutons */
+
+msContents > msItem:hover:after
+{
+	content:
+	oxy_editor(type, button, actionID, 'add.msItem', color, blue, transparent, true, fontInherit, true, style, "@import 'buttons.css';")
+ oxy_editor(type, button, actionID, 'del.msItem', color, green, transparent, true, fontInherit, true, style, "@import 'buttons.css';") "\A ";
+}
+
+/* msPart*/
+
+/* physDesc*/
+
+/* Intitulés seuls*/
+
+objectDesc:before,
+handDesc:before,
+origin:before,
+provenance:before
+{
+	display:block;
+	padding-top:1em;
+	content:
+	oxy_label(text, oxy_name(), styles, "@import 'labels-group-2.css';");
+}
+
+supportDesc:before,
+layoutDesc:before,
+handDesc:before,
+decoDesc:before,
+origDate:before,
+origPlace:before
+{
+	display:block;
+	padding-top:1em;
+	content:
+	oxy_label(text, oxy_name(), styles, "@import 'labels-group-3.css';");
+}
+
+layoutDesc > layout:before,
+handDesc > handNote:before
+decoDesc > decoNote:before
+{
+	display:block;
+	padding-top:1em;
+	content:
+	oxy_label(text, oxy_name(), styles, "@import 'labels-group-3.css';");
+}
+
+support p:before,
+layout p:before,
+handNote p:before,
+decoNote p:before,
+origPlace:before
+{
+	content:
+	oxy_label(text, oxy_name(), styles, "@import 'labels.css';")
+ oxy_editor(
+rendererClassName, 'ro.sync.ecss.component.editor.custom.TextAreaEditor', 
+swingEditorClassName, 'ro.sync.ecss.component.editor.custom.TextAreaEditor', 
+/* The edit property should have 'custom' value. */ 
+edit, 'custom', contentType, 'text/xml', nameSpace, tei, fontInherit, true, 
+rows, 5, columns, 60);
+}
+
+/* history */
+/*
+history:before
+{
+    content:
+    oxy_label(text, "history :", styles, "@import 'labels-group.css';");
+}
+
+origPlace:before
+{
+    content:
+    oxy_label(text, oxy_name(), styles, "@import 'labels.css';")
+ oxy_combobox(columns, 16, edit, "@type", editable, false, values, "ancient, old, very-old, very-very-old");
+}
+
+origPlace > placeName:before
+{
+    content:
+    oxy_label(text, "Réf. Pléiade du lieu d'origine :", styles, "@import 'labels.css';")
+ oxy_textfield(edit, "@ref", columns, 50);
+}
+
+origPlace settlement:before
+{
+    content:
+    oxy_label(text, "Lieu de peuplement (cité, ville, village...) :", styles, "@import 'labels.css';")
+ oxy_textfield(edit, "#text", columns, 50);
+}
+
+origPlace region:before
+{
+    content:
+    oxy_label(text, "Région :", styles, "@import 'labels.css';")
+ oxy_textfield(edit, "#text", columns, 50);
+}
+
+origDate:before
+{
+    content:
+    oxy_label(text, "Date d'origine", styles, "@import 'labels.css';")
+ "\A " oxy_label(text, "période", styles, "@import 'labels.css';")
+ oxy_textfield(edit, "@period", columns, 20)
+ "\A " oxy_label(text, "précision*", styles, "@import 'labels.css';")
+ oxy_textfield(edit, "@precision", columns, 20)
+ "\A " oxy_label(text, "'evidence*'", styles, "@import 'labels.css';")
+ oxy_textfield(edit, "@evidence", columns, 20)
+ "\A " oxy_label(text, "'when*'", styles, "@import 'labels.css';")
+ oxy_textfield(edit, "@when", columns, 10)
+ oxy_label(text, "'notBefore*'", styles, "@import 'labels.css';")
+ oxy_textfield(edit, "@notBefore-custom", columns, 10)
+ oxy_label(text, "'notAfter*'", styles, "@import 'labels.css';")
+ oxy_textfield(edit, "@notAfter-custom", columns, 10);
+}
+ */
+
+
+
+
+
+/* */
+
+revisionDesc
+{
+	content:
+	oxy_label(text, "Révisions : ", styles, "@import 'labels.css';")
+}
+
+revisionDesc change
+{
+	content:
+	oxy_attributes() " : ";
+	display:block;
+}
+
+/* à vérifier*/
+
+
+
+
+/* -------------------------------------------------*/
+/*        text (Epidoc structure) */
+/* -------------------------------------------------*/
+
+div[type = 'edition'],
+div[type = 'textpart'],
+div[type = 'apparatus'],
+div[type = 'commentary'],
+div[type = 'translation'],
+div[type = 'bibliography']
+{
+	display:block;
+	background-color:#F6F6E8; /* beige */
+	margin:2em;
+	padding:2em;
+	font-family:arial, sans-serif;
+}
+
+div[type = 'apparatus'] p,
+div[type = 'commentary'] p,
+div[type = 'translation'] p,
+div[type = 'bibliography'] listBibl:first-child
+{
+	display:block;
+	margin:0;
+	padding:0;
+	font-family:arial, sans-serif;
+}
+
+div[type = 'bibliography'] listBibl
+{
+	background:#efefef;
+	display:block;
+}
+
+div[type = 'bibliography']:before
+{
+	content:"Bibliographie";
+	border-top:1px solid #ccc;
+	display:block;
+}
+
+listBibl:before
+{
+	padding-top:1em;
+	content:attr(type);
+	display:block;
+	color:orange;
+}
+
+listBibl > bibl
+{
+	display:block;
+	padding-left:2em;
+	padding-bottom:1em;
+}
+
+persName persName
+{
+	color:green
+}
+
+div[type = 'edition'] app rdg
+{
+	display:none
+}
+
+div[type = 'edition'] app lem
+{
+	display:inline
+}
+
+
+/* -------------------------------------------------*/
+/*        text */
+/* -------------------------------------------------*/
+
+text:before
+{
+	content:"text : Edition";
+}
+
+div[type = 'edition'] ab,
+l
+{
+	padding:0 5%;
+}
+
+body
+{
+	font-size:120%;
+	line-height:1em;
+}
+
+damage
+{
+	color:#00BFFF
+}
+
+div
+{
+	padding:0;
+	margin:0;
+}
+
+div[type = 'commentary'],
+div[type = 'bibliography']
+{
+	background-color:MintCream;
+}
+
+div[type = 'edition']
+{
+	background-color:white;
+}
+
+div[type = 'textpart']
+{
+	margin-top:1em;
+}
+
+
+div[type = 'edition'] > div[type = 'textpart']:before,
+lg:before
+{
+	margin-top:1em;
+	content:attr(subtype) " : " attr(n);
+	background-color:black;
+	color:white;
+	display:inline-block;
+}
+
+div[type = 'apparatus']
+{
+	background-color:#F0F8FF;
+}
+
+gap,
+gap:after
+{
+	content:"";
+}
+
+handShift:after
+{
+	content:"handShift." attr(new);
+	color:red;
+	font-size:.75em;
+}
+
+div[type = "edition"] l:first-child
+{
+	margin-top:1em;
+}
+
+lb:before
+{
+	content:"l. " attr(n);
+	color:white;
+	background-color:#696969;
+	display:inline-block;
+}
+
+lb[rend ^= 'indent']:after
+{
+	content:" " attr(rend);
+	color:red;
+	font-size:.75em;
+	background:transparent;
+}
+
+lb[break = 'no']
+{
+	display:block;
+}
+
+lb[break = 'no']:after
+{
+	content:'-';
+	color:red;
+	background-color:transparent;
+}
+
+lg[type]:before
+{
+	content:"Type : " attr(type)
+}
+
+lg[met]:before
+{
+	content:"Mètre : " attr(met);
+}
+
+div[type = "edition"] persName
+{
+	background-color:orange;
+}
+
+rdg:before
+{
+	content:'';
+}
+
+rdg[source]
+{
+	background-color:#E6E6FA;
+}
+
+rdg[resp]
+{
+	background-color:#FFF0F5;
+}
+
+roleName
+{
+	background-color:green;
+}
+
+space[dim = 'horizontal']:after
+{
+	content:"Vacat \27f7: " attr(quantity) " (" attr(unit) ")";
+	color:red;
+	font-size:.75em;
+	display:inline-block;
+	padding:0 1.25em;
+}
+
+space[dim = 'vertical']:after
+{
+	content:"Vacat \2195 : " attr(extent) " (" attr(unit) ")";
+	color:red;
+	display:block;
+	margin:0 auto;
+	padding:1em 15%;
+	font-size:.75em;
+}
+
+supplied[reason = 'lost']:before
+{
+	content:'[';
+	color:red;
+}
+
+supplied[reason = 'lost']:after
+{
+	content:']';
+	color:red;
+}
+
+supplied[reason = 'omitted']:before
+{
+	content:'<';
+	color:red;
+}
+
+supplied[reason = 'omitted']:after
+{
+	content:'>';
+	color:red;
+}
+
+unclear
+{
+	text-decoration:overline;
+	color:inherit;
+	font-style:normal;
+}
+
+
+
+/* -------------------------------------------------*/
+/*        oxygen form controls*/
+/* -------------------------------------------------*/
+
+
+/* elements */
+
+titleStmt > title,
+respStmt resp,
+respStmt forename,
+respStmt surname,
+msIdentifier > idno,
+msIdentifier > msName,
+altIdentifier idno,
+altIdentifier > note,
+msContents > msItem,
+msContents > locus,
+msContents > bibl,
+support > p,
+objectType,
+material,
+dimensions,
+dimensions > height,
+dimensions > width,
+dimensions > depth,
+layout,
+layout > p,
+handNote,
+decoNote,
+placeName,
+settlement,
+region,
+origPlace,
+origDate,
+provenance,
+event,
+event > p
+{
+	visibility:-oxy-collapse-text;
+	display:block;
+
+}
+
+supportDesc > support,
+supportDesc > support > p,
+support > p *,
+msItem title,
+msItem bibl
+{
+	visibility:-oxy-collapse-text;
+	white-space:pre;
+}
+
+/* -------------------------------------------------*/
+/*        éléments non affichés */
+/* -------------------------------------------------*/
+
+availability,
+editionStmt,
+titleStmt > editor,
+encodingDesc,
+facsimile,
+funder,
+principal,
+sponsor,
+back > div[type = "bibliography"]
+{
+	display:none;
+}
+
+altIdentifier > repository
+{
+	display:block;
+}
+
+
+/* *************************************************************************** */
+/* test */
+/*tooltip*/
+/*
+rdg{
+    xbackground-color:yellow;ƒ
+}
+rdg:hover{
+    color:red;
+    position:relative;
+}
+
+rdg[source]:hover:after,
+rdg[resp]:hover:after{
+    content:attr(source);
+    padding:4px 8px;
+    color:#333;
+    position:absolute;
+    left:0;
+    top:100%;
+    white-space:nowrap;
+    z-index:20px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    -moz-box-shadow:0px 0px 4px #222;
+    -webkit-box-shadow:0px 0px 4px #222;
+    box-shadow:0px 0px 4px #222;
+    background-image:-moz-linear-gradient(top, #eeeeee, #cccccc);
+    background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #eeeeee), color-stop(1, #cccccc));
+    background-image:-webkit-linear-gradient(top, #eeeeee, #cccccc);
+    background-image:-moz-linear-gradient(top, #eeeeee, #cccccc);
+    background-image:-ms-linear-gradient(top, #eeeeee, #cccccc);
+    background-image:-o-linear-gradient(top, #eeeeee, #cccccc);
+}
+*/

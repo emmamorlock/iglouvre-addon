@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?> -->
+<!-- 
+    Consignes d'utilisation :
+    - - - - - - - - - - - -
+    -1. transcrire les inscriptions présentes sur chaque bloc sans interprétation dans l'élément <gi>sourceDoc</gi>
+                (cf. http://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-sourceDoc.html))
+                
+    -2. utiliser les subdivision de <gi>text</gi> pour constituer des textes à partir des séquences de blocs,
+                en utilisant les élément TEI pour la structure du texte ainsi constitué (par ex. "list, item, etc.).
+                Les pointeurs renvoient aux blocs.
+                
+                exemple :
+                        <item n="1">
+                            <ptr target="#z1"/>
+                        </item>
+                
+                Pour le cas où le texte est à cheval sur deux blocs,
+                on peut demander une jointure l'élément <gi>join</gi>
+                
+                exemple :
+                        <item n="3">
+                            <join target="#z5 #z6"/>
+                        </item>    
+                       
+                    
+    -3. Lancer la tranformation "Théôres"
+        la structure textuelle formatée dans l'élément <gi>text</gi> sera fusionnée avec les inscriptions sur 
+        les blocs transcrites dans l'élément <gi>sourceDoc</gi>.
+                
+    -4. A chaque modification du fichier, renseigner l'élément <gi>revisionDesc</gi> via le modèle de code "igl-change" :
+        -** se placer sous le <gi>change</gi> précédent
+        -** activer le modèle de code avec ctrl + barre d'espage et renseigner les dialogues (initiales + description rapide des modiications effectuées). 
+    
+-->
+
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="IGL-0001.xml">
+    <teiHeader>
+        <!-- /////////////////////////////////////// en tête général  -->
+        <fileDesc>
+            <titleStmt>
+                <title xml:lang="fr">Essais Théôres</title>
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                    href="../includes/igl_titleStmt.xml" xpointer="projetInfo1" parse="xml">
+                    <xi:fallback>
+                        <funder>infos title Stmt</funder>
+                    </xi:fallback>
+                </xi:include>
+                <respStmt>
+                    <resp>Editeur scientifique</resp>
+                    <persName ref="#PN">
+                        <forename>Prénom </forename>
+                        <surname>Nom </surname>
+                    </persName>
+                </respStmt>
+            </titleStmt>
+            <publicationStmt>
+                <authority>Fichier de test produit dans le cadre du <ref
+                        target="http://www.iglouvre.org ">projet IGLouvre</ref> et établie selon les
+                    recommandations du schéma Epidoc, schéma TEI spécialisé pour
+                    l'épigraphie.</authority>
+                <idno type="filename">IGL_theores${ask('suffixe du nom de fichier')}.xml</idno>
+            </publicationStmt>
+            <sourceDesc>
+                <!-- /////////////////////////////////// Description physique de la source  -->
+                <msDesc>
+                    <!-- - - - - - - - - - - - - - - - - Identification principale de l'objet  -->
+                    <msIdentifier>
+                        <repository>Musée</repository>
+                        <collection>Collection</collection>
+                        <idno type="editorialNo"></idno>
+                        <msName>Collection de blocs</msName>
+                        <!-- - - - - - - - - - - - - - - Autre identification (répétable)  -->
+                    </msIdentifier>
+                    <msContents>
+                        <!-- //////////////////////// Description des textes (contenu intellectuel)  -->
+                        <msItem xml:id="texte01" n="I">
+                            <locus/>
+                            <!-- <locus scheme="" from="" to="" target="#"/> -->
+                            <title>Liste garçons + filles</title>
+                            <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - répétable  -->
+                            <!-- <bibl>ref. bibl de référence pour le texte</bibl> -->
+                            <!--[exemple : <bibl ptr="#" IG II 2, 1257]-->
+                            <!--[s'il y en a plusieurs : mettre dans un listBibl]-->
+                            <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
+                        </msItem>
+                        <msItem xml:id="texte02" n="II">
+                            <locus/>
+                            <!-- <locus scheme="" from="" to="" target="#"/> -->
+                            <title>Liste fille + garçons</title>
+                            <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - répétable  -->
+                            <!-- <bibl>ref. bibl de référence pour le texte</bibl> -->
+                            <!--[exemple : <bibl ptr="#" IG II 2, 1257]-->
+                            <!--[s'il y en a plusieurs : mettre dans un listBibl]-->
+                            <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
+                        </msItem>
+                        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
+                    </msContents>
+                    <!-- //////////////////////// Description physique de l'objet  -->
+                    <!--  -->
+                    <physDesc>
+                        <objectDesc>
+                            <supportDesc>
+                                <support>
+                                    <p>
+                                        <!-- Description générale si nécessaire. -->
+                                    </p>
+                                </support>                                
+                            </supportDesc>
+                            <layoutDesc>
+                                <layout columns="1" writtenLines="1">
+                                    <p>
+                                        La liste de prénoms agencée de telle manière...
+                                    </p>
+                                </layout>
+                            </layoutDesc>
+                        </objectDesc>  
+                        <handDesc>
+                            <handNote xml:id="style01" rend="color:red; font-style:bold;">
+                                <!-- le contenu de l'attribut @rend sera utilisé dans la transformation du xml vers le html -->
+                                lettres rouges, en gras.
+                            </handNote>
+                            <handNote xml:id="style02">
+                                lettres, interligne, etc.
+                            </handNote>
+                            <handNote xml:id="style03">
+                                lettres, interligne, etc.
+                            </handNote>
+                        </handDesc>
+                    </physDesc>
+                    <history>
+                        <origin>
+                            <origPlace type="ancient">
+                                <!-- Exemple <placeName cert="high" ref="http://pleiades.stoa.org/places/589959">Olonte</placeName> -->
+                            </origPlace>
+                            <origDate calendar="Julian" resp="XX" period="ancient"
+                                notBefore-custom="-500" notAfter-custom="500" precision="low"
+                                evidence="context">
+                                <!-- ###EM : à revoir -->
+                            </origDate>
+                        </origin>
+                        <provenance>
+                            <!--    -->
+                        </provenance>
+                    </history>
+                    <additional>
+                        <surrogates>
+                            <!-- ###EM : à revoir-->
+                            <msDesc n="estampage-1" facs="#fac02">
+                                <msIdentifier>
+                                    <repository>Institution</repository>
+                                    <idno>Indentifiant</idno>
+                                </msIdentifier>
+                            </msDesc>
+                        </surrogates>
+                    </additional>
+                    <!-- ///////////////////////////////////// Fragments physiques de l'objet composite  -->
+                    <!-- fragment 1 -->
+                    <msPart xml:id="object01">
+                        <msIdentifier>
+                            <repository>Musée du Louvre</repository>
+                            <idno>AGO-bleu</idno>
+                            <!--  
+                            <altIdentifier>
+                                <repository>repository</repository>
+                                <idno>idno</idno>
+                                <note>note</note>
+                            </altIdentifier>
+                            -->
+                        </msIdentifier>
+                        <physDesc>
+                            <objectDesc>
+                                <supportDesc>
+                                    <support>
+                                        <p rend="blue">
+                                            Bloc bleu
+                                        </p>
+                                    </support>
+                                </supportDesc>
+                                <layoutDesc>
+                                    <layout columns="1" writtenLines="1">
+                                        <p>Une colonne régulière</p>
+                                    </layout>
+                                </layoutDesc>
+                            </objectDesc>
+                            <handDesc>
+                                <handNote ana="#style01" >
+                                   <locus scheme="surface-zone-line" from="s1.z1.n3" to="s1.z1.n4"/>
+                                </handNote>
+                            </handDesc>
+                            <!--  
+                            <decoDesc>
+                                <decoNote>
+                                    <p></p>
+                                </decoNote>
+                            </decoDesc>
+                            -->
+                        </physDesc>
+                        <history>
+                            <!--  
+                            <origin>
+                                <origPlace type="ancient">
+                                    <placeName xml:id="notreID2" cert="low"></placeName>
+                                </origPlace>
+                               <origDate xml:id="date01" resp="#AD" period="hellenistic" notBefore-custom="-0280" notAfter-custom="-0267" precision="low" evidence="prosopography" datingMethod="#julian" corresp="#texte01">
+								<date></date>
+							</origDate>
+                            </origin>
+                            -->
+                            <provenance type="found" when="1898-01-01">
+                                <p><!-- Découvert ....--></p>
+                            </provenance>
+                            <acquisition>Il a été amené au Louvre...</acquisition></history>
+                    </msPart>
+                    <!-- fragment 2 -->
+                    <msPart xml:id="object02">
+                        <msIdentifier>
+                            <repository>Musée du Louvre</repository>
+                            <idno>AGO-violet</idno>
+                            <!--  
+                            <altIdentifier>
+                                <repository>repository</repository>
+                                <idno>idno</idno>
+                                <note>note</note>
+                            </altIdentifier>
+                            -->
+                        </msIdentifier>
+                        <physDesc>
+                            <objectDesc>
+                                <supportDesc>
+                                    <support>
+                                        <p rend="BlueViolet">
+                                            Bloc violet
+                                        </p>
+                                    </support>
+                                </supportDesc>
+                                <layoutDesc>
+                                    <layout columns="1" writtenLines="1">
+                                        <p>Une colonne...</p>
+                                    </layout>
+                                </layoutDesc>
+                            </objectDesc>
+                            <handDesc>
+                                <handNote>
+                                    <!-- <locus scheme="surface-zone-line" from="s4.z5.n1" to="s4.z5.n3"/>   -->                                      
+                                </handNote>
+                            </handDesc>
+                            <!--  
+                            <decoDesc>
+                                <decoNote>
+                                    <p></p>
+                                </decoNote>
+                            </decoDesc>
+                            -->
+                        </physDesc>
+                        <history>
+                            <!--  
+                            <origin>
+                                <origPlace type="ancient">
+                                    <placeName xml:id="notreID2" cert="low"></placeName>
+                                </origPlace>
+                               <origDate xml:id="date01" resp="#AD" period="hellenistic" notBefore-custom="-0280" notAfter-custom="-0267" precision="low" evidence="prosopography" datingMethod="#julian" corresp="#texte01">
+								<date></date>
+							</origDate>
+                            </origin>
+                            -->
+                            <provenance type="found" when="1898-01-01">
+                                <p> Découvert ....</p>
+                            </provenance>
+                            <acquisition>Il a été amené au Louvre...</acquisition></history>
+                    </msPart>
+                    <!-- fragment 3 -->
+                    <msPart xml:id="object03">
+                        <msIdentifier>
+                            <repository>Musée du Louvre</repository>
+                            <idno>AGO-orange</idno>
+                            <!--  
+                            <altIdentifier>
+                                <repository>repository</repository>
+                                <idno>idno</idno>
+                                <note>note</note>
+                            </altIdentifier>
+                            -->
+                        </msIdentifier>
+                        <physDesc>
+                            <objectDesc>
+                                <supportDesc>
+                                    <support>
+                                        <p rend="orange">
+                                            Bloc orange
+                                        </p>
+                                    </support>
+                                </supportDesc>
+                                <layoutDesc>
+                                    <layout columns="1" writtenLines="1">
+                                        <p>Une colonne...</p>
+                                    </layout>
+                                </layoutDesc>
+                            </objectDesc>
+                            <handDesc>
+                                <handNote>
+                                    <!-- <locus scheme="surface-zone-line" from="s4.z5.n1" to="s4.z5.n3"/>   -->                                      
+                                </handNote>
+                            </handDesc>                            
+                            <!--  
+                            <decoDesc>
+                                <decoNote>
+                                    <p></p>
+                                </decoNote>
+                            </decoDesc>
+                            -->
+                        </physDesc>
+                        <history>
+                            <!--  
+                            <origin>
+                                <origPlace type="ancient">
+                                    <placeName xml:id="notreID2" cert="low"></placeName>
+                                </origPlace>
+                               <origDate xml:id="date01" resp="#AD" period="hellenistic" notBefore-custom="-0280" notAfter-custom="-0267" precision="low" evidence="prosopography" datingMethod="#julian" corresp="#texte01">
+								<date></date>
+							</origDate>
+                            </origin>
+                            -->
+                            <provenance type="found" when="1898-01-01">
+                                <p> Découvert ....</p>
+                            </provenance>
+                            <acquisition>Il a été amené au Louvre...</acquisition></history>
+                    </msPart>
+                    <!-- fragment 4 -->
+                    <msPart xml:id="object04">
+                        <msIdentifier>
+                            <repository>Musée du Louvre</repository>
+                            <idno>AGO-jaune</idno>
+                            <!--  
+                            <altIdentifier>
+                                <repository>repository</repository>
+                                <idno>idno</idno>
+                                <note>note</note>
+                            </altIdentifier>
+                            -->
+                        </msIdentifier>
+                        <physDesc>
+                            <objectDesc>
+                                <supportDesc>
+                                    <support>
+                                        <p rend="yellow">
+                                            Bloc jaune
+                                        </p>
+                                    </support>
+                                </supportDesc>
+                                <layoutDesc>
+                                    <layout columns="1" writtenLines="1">
+                                        <p>Une colonne...</p>
+                                    </layout>
+                                </layoutDesc>
+                            </objectDesc>
+                            <handDesc>
+                                <handNote>
+                                    <!-- <locus scheme="surface-zone-line" from="s4.z5.n1" to="s4.z5.n3"/>   -->                                      
+                                </handNote>
+                            </handDesc>
+                            <!--  
+                            <decoDesc>
+                                <decoNote>
+                                    <p></p>
+                                </decoNote>
+                            </decoDesc>
+                            -->
+                        </physDesc>
+                        <history>
+                            <!--  
+                            <origin>
+                                <origPlace type="ancient">
+                                    <placeName xml:id="notreID2" cert="low"></placeName>
+                                </origPlace>
+                               <origDate xml:id="date01" resp="#AD" period="hellenistic" notBefore-custom="-0280" notAfter-custom="-0267" precision="low" evidence="prosopography" datingMethod="#julian" corresp="#texte01">
+								<date></date>
+							</origDate>
+                            </origin>
+                            -->
+                            <provenance type="found" when="1898-01-01">
+                                <p> Découvert ....</p>
+                            </provenance>
+                            <acquisition>Il a été amené au Louvre...</acquisition></history>
+                    </msPart>
+                    <!-- fragment 5 -->
+                    <msPart xml:id="object05">
+                        <msIdentifier>
+                            <repository>Musée du Louvre</repository>
+                            <idno>AGO-gris</idno>
+                            <!--  
+                            <altIdentifier>
+                                <repository>repository</repository>
+                                <idno>idno</idno>
+                                <note>note</note>
+                            </altIdentifier>
+                            -->
+                        </msIdentifier>
+                        <physDesc>
+                            <objectDesc>
+                                <supportDesc>
+                                    <support>
+                                        <p rend="silver">
+                                            Bloc gris
+                                        </p>
+                                    </support>
+                                </supportDesc>
+                                <layoutDesc>
+                                    <layout columns="1" writtenLines="1">
+                                        <p>Une colonne...</p>
+                                    </layout>
+                                </layoutDesc>
+                            </objectDesc>
+                            <handDesc>
+                                <handNote>
+                                    <!-- <locus scheme="surface-zone-line" from="s4.z5.n1" to="s4.z5.n3"/>   -->                                      
+                                </handNote>
+                            </handDesc>
+                            <!--  
+                            <decoDesc>
+                                <decoNote>
+                                    <p></p>
+                                </decoNote>
+                            </decoDesc>
+                            -->
+                        </physDesc>
+                        <history>
+                            <!--  
+                            <origin>
+                                <origPlace type="ancient">
+                                    <placeName xml:id="notreID2" cert="low"></placeName>
+                                </origPlace>
+                               <origDate xml:id="date01" resp="#AD" period="hellenistic" notBefore-custom="-0280" notAfter-custom="-0267" precision="low" evidence="prosopography" datingMethod="#julian" corresp="#texte01">
+								<date></date>
+							</origDate>
+                            </origin>
+                            -->
+                            <provenance type="found" when="1898-01-01">
+                                <p> Découvert ....</p>
+                            </provenance>
+                            <acquisition>Il a été amené au Louvre...</acquisition></history>
+                    </msPart>                    
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+        <profileDesc>
+            <langUsage>
+                <language ident="fr">French</language>
+                <language ident="en">English</language>
+                <language ident="grc">Grec ancien</language>
+            </langUsage>
+        </profileDesc>
+        <encodingDesc>
+            <variantEncoding method="location-referenced" location="external"/>
+            <refsDecl>
+                <!-- ###EM : à revoir -->
+                <cRefPattern matchPattern="([^ ]+ [0-9]+\.[0-9]+\.[0-9]+)"
+                    replacementPattern="#xpath(//lb[@n='$1')"/>
+            </refsDecl>
+        </encodingDesc>
+        <!-- - - - - - - - - - - - - - - - -  Suivi des modifications  --> 
+        <!-- Pour ajouter une entrée, utiliser le modèle de code "igl-change",
+            accessible  via Document > Composition automatique > Afficher les modèles de code-->
+        <revisionDesc>
+            <change who="${ask('Identifiant du créateur du fichier (initiales)')}"
+                when="${date(yyyy-MM-dd)}">Création du fichier</change>
+        </revisionDesc>
+    </teiHeader>
+    <facsimile>
+        <!-- ###EM : à revoir -->
+        <graphic xml:id="fac01" url="../images/BostonCityFlow.jpg">
+            <desc>Vue inscription</desc>
+        </graphic>
+        <graphic xml:id="fac02" url="../images/BostonCityFlow.jpg">
+            <desc>Estampage</desc>
+        </graphic>
+    </facsimile>
+    <sourceDoc>
+        <!-- - - - - - - - - - - - - - - - -  Transcription par bloc, sans interprétation textuelle  --> 
+        <!-- attention : le contenu des attributs @n n'est pas utilisé dans la feuille XSL  -->
+        <surface n="bloc 1" xml:id="s1" corresp="#object01">
+            <graphic url="dessin-bloc1.png"/>
+            <zone xml:id="z1">
+                <line n="1"><seg ana="#date-2000">anabelle</seg> fille de Joseph</line>
+                <line n="2">isabelle fille de Platon</line>
+                <!-- rouge gras-->
+                <line n="3">anne fille de David</line>
+                <line n="4">sophie fille d'Isabelle</line>
+                <!-- fin rouge -->
+            </zone>
+        </surface>
+        <surface n="bloc 2" xml:id="s2" corresp="#object02">
+            <graphic url="dessin-bloc2.png"/>
+            <zone xml:id="z2">
+                <line n="1"><seg type="nom" ana="#P02">Jean</seg><seg type="patronyme"> fils de <seg ana="#P01">Toto</seg></seg></line>
+                <line n="2">Pierre fils de Paul</line>
+                <milestone unit="paragraphum"/>
+                <line n="3">Michel fils de Pierre</line>
+                <line n="4">André fils de Anne</line>
+                <line n="5"><gap reason="illegible" extent="1" unit="name"/></line>
+            </zone>
+        </surface>
+        <surface n="bloc 3" xml:id="s3" corresp="#object03">
+            <graphic url="dessin-bloc3.png"/>
+            <zone xml:id="z3">
+                <line n="1">Caroline fille de Joseph</line>
+                <line n="2">Claudine fille de Michel</line>
+                <line n="3"><seg ana="#date-2010">Louise</seg></line>
+                <line n="4">Carole fille d'Isabelle</line>
+                <line n="5"><gap reason="illegible" extent="1" unit="name"/></line>
+            </zone>
+            <zone xml:id="z4">
+                <line n="1">Stéphane fils de anabelle</line>
+                <line n="2">Benjamin fils de Michel</line>
+                <line n="3">Jérémie fils de Joseph</line>
+                <line n="4">Antoine fils de John</line>
+                <line n="5"><gap reason="illegible" extent="1" unit="name"/></line>
+                <line n="6"><gap reason="illegible" extent="1" unit="name"/></line>
+            </zone>
+        </surface>
+        <surface n="bloc 4" xml:id="s4" corresp="#object04">
+            <graphic url="dessin-bloc4.png"/>
+            <zone xml:id="z5">
+                <!-- vert -->
+                <line n="1"><seg xml:id="s1a">Mi</seg></line>
+                <line n="2"><seg xml:id="s2a">Pe</seg></line>
+                <line n="3"><seg xml:id="s3a">Anna</seg> fille de Michel</line>
+                <!-- fin vert -->
+            </zone>
+        </surface>
+        <surface n="bloc 5" xml:id="s5" corresp="#object05">
+            <graphic url="dessin-bloc5.png"/>
+            <zone xml:id="z6">
+                <!-- vert -->
+                <line n="1"><seg xml:id="s1b">cheline</seg> fille de Sophie</line>
+                <line n="2"><seg xml:id="s2b">rrine</seg> fille de Joseph</line>
+                <!-- fin vert -->
+            </zone>
+        </surface>
+    </sourceDoc>
+    <text>
+        <body>
+            <div type="edition" xml:lang="grc">
+                <div type="textpart" xml:id="prefixeId01">
+                    <ab>
+                        <!-- - - - - - - - - - - - - - - - -  Reproduction des blocs décrits dans <gi>sourceDoc</gi>  -->
+                      
+                        <join target="#s1 #s2 #s3 #s4 #s5" result="list" scope="root" type="sourceDoc2text"/>
+                        
+                        <!-- - - - - - - - - - - - - - - - -  Simulation 1  -->
+                        
+                        <list n="1">
+                            <head>Liste filles puis garçons - une colonne</head>
+                            <item n="1"><ptr target="#z1"/></item>
+                            <item n="2"><ptr target="#z3"/></item>
+                            <item n="3"><join target="#z5 #z6"/></item>
+                            <item n="4"><ptr target="#z2"/></item>
+                            <item n="5"><ptr target="#z4"/></item>
+                        </list>
+                        
+                        <!-- - - - - - - - - - - - - - - - -  Simulation 2  -->
+                        
+                        <list n="2">                            
+                            <head>Liste garçons puis filles - une colonne</head>                           
+                            <item n="4"><ptr target="#z2"/></item>                   
+                            <item n="5"><ptr target="#z4"/></item>                            
+                            <item n="1"><ptr target="#z1"/></item>
+                            <item n="2"><ptr target="#z3"/></item>
+                            <item n="3"><join target="#z5 #z6" type="alignLines"/></item>
+                        </list>
+                        
+                        <!-- - - - - - - - - - - - - - - - -  Simulation 3  -->
+                        
+                       <list n="3">
+                           <cb n="1"/>
+                           <head>Liste filles puis garçons - 2 colonnes</head>
+                           <item n="1"><ptr target="#z1"/></item>
+                           <item n="2"><ptr target="#z3"/></item>
+                           <item n="3"><join target="#z5 #z6"/></item>
+                           <cb n="2"/>
+                           <item n="4"><ptr target="#z2"/></item>
+                           <item n="5"><ptr target="#z4"/></item>
+                       </list>
+                        
+                        <!-- - - - - - - - - - - - - - - - -  Simulation 4  -->
+                        
+                        <list n="4">                            
+                            <head>Liste garçons puis filles - 4 colonnes</head>                              
+                            <item n="4"><ptr target="#z2"/></item>
+                            <cb n="1"/>
+                            <item n="5"><ptr target="#z4"/></item>
+                            <cb n="2"/>
+                            <item n="1"><ptr target="#z1"/></item>
+                            <item n="2"><ptr target="#z3"/></item>
+                            <cb n="3"/>
+                            <item n="3"><join target="#z5 #z6" type="alignLines"/></item>
+                        </list>
+                        
+                        <!-- - - - - - - - - - - - - - - - -  Simulation 5  -->
+                        
+                        <list n="5" type="prosopography">                            
+                            <head>Liste garçons puis filles - prosopography</head>                              
+                            <item n="4"><ptr target="#z2"/></item>
+                            <cb n="1"/>
+                            <item n="5"><ptr target="#z4"/></item>
+                            <cb n="2"/>
+                            <item n="1"><ptr target="#z1"/></item>
+                            <item n="2"><ptr target="#z3"/></item>
+                            <cb n="3"/>
+                            <item n="3"><join target="#z5 #z6" type="alignLines"/></item>
+                        </list>
+                    </ab>
+                </div>
+                <div type="apparatus"/>
+                    
+                
+                <div type="translation"/>
+                  
+                
+                <div type="commentary"/>
+                    
+                
+                <div type="bibliography"/>
+                 
+                
+            </div>
+        </body>
+        <back>
+            <div type="bibliography">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                    href="../includes/igl_bibliography.xml">
+                    <xi:fallback>
+                        <p>Bibliographie maître</p>
+                    </xi:fallback>
+                </xi:include>
+            </div>
+        </back>
+    </text>
+</TEI>

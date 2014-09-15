@@ -1,0 +1,288 @@
+/* globals from epidoc 8.18 */
+/* additions by em */
+
+*[lang = "la"]
+{
+    font-family:"GentiumAlt", "Gentium", "Palatino Linotype", "Palatino", "Times New Roman", "Times", "Arial Unicode MS", serif;
+}
+
+*[lang = "grc"]
+{
+    font-family:"Lucida Grande", "Arial Unicode MS", "Galilee Unicode Gk", "New Athena Unicode", "Athena Unicode", 
+"Palatino Linotype", "Titus Cyberbit Basic", "Cardo", "Vusillus Old Face", "Alphabetum", "Galatia SIL", 
+"Code 2000", "GentiumAlt", "Gentium", "Minion Pro", "GeorgiaGreek", "Vusillus Old Face Italic", 
+"Everson Mono", "Aristarcoj", "Porson", "Legendum", "Aisa Unicode", "Hindsight Unicode", "Caslon", 
+"Verdana", "Tahoma";
+}
+
+body
+{
+    font-size:85%;
+}
+
+
+
+div#edition,
+div#apparatus,
+div#commentary,
+div#translation,
+div#bibliogrphy
+{
+    margin-left:auto;
+    margin-right:auto;
+    text-align:left;
+    background:#f9f9f9;
+}
+
+div.textpart
+{
+    width:25em;
+    width:95%;
+    line-height:1;
+    background:white;
+    border:1px solid #C3C7C7;
+    padding:1.6em;
+}
+
+.author
+{
+    font-variant:small-caps;
+}
+
+.italic
+{
+    font-style:italic;
+}
+
+.latinnum
+{
+    border-top:thin black solid;
+}
+
+.linenumber
+{
+    left:-4em;
+    padding-right:0.2em;
+    position:absolute;
+}
+
+.linenumberbroken
+{
+    left:-4em;
+    padding-right:0.2em;
+    position:absolute;
+    color:red;
+    text-decoration:blink;
+}
+
+.milestoneNumber
+{
+    position:absolute;
+    right:1em;
+    color:red;
+    color:rgb(231, 144, 15);
+}
+
+.note
+{
+    font-style:normal;
+}
+
+
+
+.section
+{
+    color:rgb(231, 144, 15);
+    display:inline;
+}
+
+
+
+
+.supraline
+{
+    border-top:thin black solid;
+}
+
+
+
+
+
+.textpart
+{
+    left:6em;
+    line-height:1.4;
+    margin-top:8px;
+    margin-bottom:8px;
+    position:relative;
+    padding-right:2em;
+}
+
+.textpartnumber
+{
+    padding-right:0.2em;
+    padding-top:1.6em;
+    display:block;
+    font-weight:bold;
+    position:relative;
+    left:10em;
+    font-size:2em;
+}
+
+.title
+{
+    font-style:italic;
+}
+
+.underline
+{
+    text-decoration:underline;
+}
+
+
+/* special theores */
+/* ----------------------------------------*/
+.cb{
+    display:block;
+    border:1px solid yellow;
+    width:20%;
+    float:left;
+    margin-right:1em;
+}
+
+.textpart{
+    text-align:left;
+}
+.edition,
+.edition h2{
+    clear:both;
+}
+ul,
+li{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+li{
+    padding:.5em;
+    height:.8em;
+}
+
+div.surface,
+ul.zone{
+    display:block;
+    line-height:1;
+    position:relative;
+}
+
+div.surface:before{
+    content:attr(n) ' - ' attr(id);
+    font-family:arial, helvetica, sans-serif;
+    color:maroon;
+    position:absolute;
+    right:0;
+}
+
+ul.zone:before{
+    content:attr(id);
+    font-family:arial, helvetica, sans-serif;
+    color:green;
+    position:absolute;
+    right:0;
+}
+div.surface{
+    border:2px solid black;
+    width:30em;
+    margin:1em;
+    clear:left;
+
+}
+ul.zone{
+    margin:.5em;
+    padding:.5em;
+    border:2px dotted black;
+    background:WhiteSmoke;
+    width:13em;
+    float:left;
+}
+.clearfix:after { 
+   content: "."; 
+   visibility: hidden; 
+   display: block; 
+   height: 0; 
+   clear: both;
+}
+
+/* tooltip < from http://www.menucool.com/tooltip/css-tooltip /*/
+/*
+ * <a class="tooltip" href="#">
+ * <span class="milestoneNumber" id="A-VI">VI</span>
+ *      <span class="info">
+ *          <strong>Décret honorifique pour un citoyen de Pergée</strong>
+ *          <p class="translation">lorem ipsum</p>
+ *          <p>dolor sit amet</p>
+*       </span>
+ * </a>
+ * 
+ */
+
+
+li a.tooltip
+{
+    outline:none;
+    text-decoration:none;
+}
+
+li a.tooltip:hover
+{
+    text-decoration:none;
+}
+
+li a.tooltip span.info
+{
+    z-index:10;
+    display:none;
+    padding:.5em;
+    margin-top:-1em;
+    margin-left:1em;
+    margin-left:0;
+    width:8em;
+    line-height:1;
+}
+li a.tooltip:hover span.info
+{
+    display:inline;
+    position:absolute;
+    color:#111;
+    border:1px solid #DCA;
+    border:1px solid #690;
+    background:#fffAF0;
+    background:#f5f2f0;
+
+}
+hr {
+    display: block;
+    clear: both;
+    height: 0;
+    margin: 2em 1em 2em 1em;
+    padding: 1em;
+    border: 0;
+    font-family: arial;
+    text-align: center;
+    font-size: 30px;
+    line-height: 1;
+}
+hr:after {
+    content: "\273D \273D \273D";
+    height: 0;			
+    letter-spacing: 1em;
+    color: #aaa;
+}
+
+.blue {background-color:blue;}
+.orange {background-color:orange;}
+.yellow {background-color:yellow;}
+.BlueViolet {background-color:BlueViolet;}
+.silver {background-color:silver;}
+li .seg {display:inline-block;margin:0;padding:0}
+
