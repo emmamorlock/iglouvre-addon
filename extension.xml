@@ -9,7 +9,8 @@
     <xt:author>Emmanuelle Morlock</xt:author>
     <xt:name>IGLouvre oXygen framework</xt:name>
     <xt:description xmlns="http://www.w3.org/1999/xhtml">Framework oXygen du projet
-        IGLouvre.</xt:description>
+        IGLouvre. Cet add-on contient les fichiers modèles pour l'encodage des transcriptions Epidoc 
+        selon le modèle IGLouvre, une personnalisation de l'affichage en mode auteur ainsi que les feuilles de styles d'exemple Epidoc modifiées pour le projet.</xt:description>
     <xt:license>
         <![CDATA[
 
