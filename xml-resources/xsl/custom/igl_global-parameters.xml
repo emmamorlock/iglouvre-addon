@@ -64,7 +64,7 @@
     <name>css-loc</name>
     <!-- emorlock -->
     <!-- <value>../xsl/global.css</value> -->
-    <value>igl_global.css</value>
+    <value>http://www.iglouvre.org/ox-addon/igl_global.css</value>
     <!-- end -->
   </parameter>
   <parameter>

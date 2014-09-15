@@ -38,7 +38,7 @@
                     <xsl:value-of select="//tei:titleStmt/tei:title"/>
                 </title>
                 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-                <link rel="stylesheet" type="text/css" media="screen, projection" href="igl_theores.css"
+                <link rel="stylesheet" type="text/css" media="screen, projection" href="http://www.iglouvre.org/ox-addon/igl_theores.css"
                 />
             </head>
             <xsl:apply-templates/>
