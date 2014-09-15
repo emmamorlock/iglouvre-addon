@@ -5,7 +5,7 @@
 <xt:extension xmlns:xt="http://www.oxygenxml.com/ns/extension" id="iglouvre-addon"
     update_site="https://github.com/emmamorlock/iglouvre-addon/archive/">
     <xt:location href="v1.0.1.zip"/>
-    <xt:version>v1.0.1</xt:version>
+    <xt:version>1.0.1</xt:version>
     <xt:oxy_version>14.2+</xt:oxy_version>
     <xt:type>framework</xt:type>
     <xt:author>Emmanuelle Morlock</xt:author>
@@ -23,7 +23,7 @@ END USER LICENSE AGREEMENT
     <xt:extension xmlns:xt="http://www.oxygenxml.com/ns/extension" id="iglouvre-addon"
         update_site="https://github.com/emmamorlock/iglouvre-addon/archive/">
         <xt:location href="v1.0.2.zip"/>
-        <xt:version>v1.0.2</xt:version>
+        <xt:version>1.0.2</xt:version>
         <xt:oxy_version>14.2+</xt:oxy_version>
         <xt:type>framework</xt:type>
         <xt:author>Emmanuelle Morlock</xt:author>
