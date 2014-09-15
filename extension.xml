@@ -2,7 +2,7 @@
 <xt:extensions xmlns:xt="http://www.oxygenxml.com/ns/extension"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.oxygenxml.com/ns/extension/extensions.xsd">
-<xt:extension xmlns:xt="http://www.oxygenxml.com/ns/extension" id="iglouvre-addon"
+<xt:extension id="iglouvre-addon"
     update_site="https://github.com/emmamorlock/iglouvre-addon/archive/">
     <xt:location href="v1.0.1.zip"/>
     <xt:version>1.0.1</xt:version>
