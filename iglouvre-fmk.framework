@@ -701,7 +701,7 @@
 									<Boolean>true</Boolean>
 								</field>
 								<field name="outputFile">
-									<File>output/${cfn}-${id}.html</File>
+									<File>${pd}/output/${cfn}-${id}.html</File>
 								</field>
 								<field name="openOtherLocationInBrowser">
 									<Boolean>false</Boolean>
@@ -784,7 +784,7 @@
 									<Boolean>true</Boolean>
 								</field>
 								<field name="outputFile">
-									<File>output/${cfn}-${id}.html</File>
+									<File>${pd}/output/${cfn}-${id}.html</File>
 								</field>
 								<field name="openOtherLocationInBrowser">
 									<Boolean>false</Boolean>
