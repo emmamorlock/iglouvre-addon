@@ -251,21 +251,24 @@
 											</actionMode-array>
 										</field>
 									</action>
+									
+									<!--  -->
+									
 									<action>
 										<field name="id">
-											<String>add.altIdentifier</String>
+											<String>add.msPart</String>
 										</field>
 										<field name="name">
-											<String>ajout de altIdentifier</String>
+											<String>ajout de msPart</String>
 										</field>
 										<field name="description">
-											<String>Ajoute un identifiant alternatif</String>
+											<String>Ajoute un élément &lt;gi>msPart&lt;/gi></String>
 										</field>
 										<field name="largeIconPath">
 											<String></String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/oxygen-custom/css/images/Add_button.png</String>
+											<String>${framework}/iglouvre-addon/oxygen-custom/css/images/Add_button.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -277,17 +280,117 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>//idno[@type="invNo"][1]</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>
-&lt;altIdentifier xmlns="http://www.tei-c.org/ns/1.0">
-&lt;idno>&lt;/idno>
-&lt;note>&lt;/note>
-&lt;/altIdentifier></String>
+																<String>&lt;msPart xmlns="http://www.tei-c.org/ns/1.0" xml:id="">
+    &lt;msIdentifier>
+        &lt;repository>Musée du Louvre&lt;/repository>
+        &lt;!-- &lt;idno type="invNo">identifiant de l'objet (exemple : 'AG032599')&lt;/idno> -->
+        &lt;altIdentifier>
+            &lt;idno>&lt;!-- exemple MA 905_1 -->&lt;/idno>
+            &lt;note>&lt;/note>
+        &lt;/altIdentifier>
+        &lt;altIdentifier>
+            &lt;idno/>
+            &lt;note/>
+        &lt;/altIdentifier>                           
+    &lt;/msIdentifier>
+    &lt;physDesc>
+        &lt;!-- ********  Description de l'entité physique  -->
+        &lt;objectDesc>
+            &lt;supportDesc>
+                &lt;support>
+                &lt;p>
+                    &lt;!-- Exemple : 
+                          &lt;objectType>Bloc&lt;/objectType> de &lt;material>marbre&lt;/material> hexaédrique &lt;dimensions unit="cm">
+                            &lt;height>125,7&lt;/height>
+                            &lt;width>45,5&lt;/width>
+                            &lt;depth>19,5&lt;/depth>
+                        &lt;/dimensions>. -->
+                &lt;/p>
+            &lt;/support>
+                &lt;condition>
+                    &lt;!-- Exemple : 
+                        &lt;rs type="statConservation" ref="EAGLE-vocabulary">incomplet&lt;/rs> -->
+                &lt;/condition>
+            &lt;/supportDesc>
+            &lt;layoutDesc>
+                &lt;layout columns="1" writtenLines="1">
+                    &lt;!-- Exemple :
+                    &lt;p>Inscription &lt;rs type="execution" ref="shared-vocabulary"
+                        >gravé&lt;/rs> sur la face frontale sur 8 lignes,
+                        alignement du texte gauche, rentré de la deuxième ligne
+                        d'environ 1 cm.&lt;/p> -->
+                &lt;/layout>
+            &lt;/layoutDesc>
+        &lt;/objectDesc>
+        &lt;!-- ********  Description des "mains" ou "styles" résultant du processus d'inscription  -->
+        &lt;handDesc>
+            &lt;handNote xml:id="handGen01">
+                &lt;!--  Exemple : 
+                    La forme des lettres varie entre les treize décrets gravés dans le bloc. 
+                    En gros, l’écriture de B et C paraît plus récente que celle de A (sauf peut-être les décrets III et VI de A, 
+                    plus modernes que les autres sur la même face).-->&lt;/handNote>
+            &lt;handNote xml:id="hand01" corresp="#texte01">
+                &lt;!-- Exemple :
+                    Lettres &lt;height unit="cm">1&lt;/height> ; interligne &lt;height unit="cm">1&lt;/height>. Réglage horizontal. -->&lt;/handNote>
+        &lt;/handDesc>
+        &lt;!-- ********  Description des éléments iconographiques remarquables (optionnel) -->
+        &lt;!-- Exemple : 
+       &lt;decoDesc>
+            &lt;decoNote>
+                    &lt;p> En-dessous de l'inscriptions scène de &lt;rs type="decoration"
+                        ref="EAGLE_URI">dexiosis&lt;/rs> : &lt;rs type="decoration"
+                        ref="EAGLE_URI">femme assise&lt;/rs> et &lt;rs
+                        type="decoration" ref="EAGLE_URI">homme barbu&lt;/rs>. &lt;/p>
+            &lt;/decoNote>
+        &lt;/decoDesc> 
+        -->
+    &lt;/physDesc>
+    &lt;!-- ********  Données sur l'orgine et la provenance des textes et/ou de l'objet -->
+    &lt;!-- Remarque : si l'information affecte une partie des éléments transcrits et non la totalité, 
+                utiliser l'élément &lt;locus/> pour préciser la portée de la donnée. -->
+    &lt;history>
+        &lt;origin>
+            &lt;origPlace type="ancient">
+                &lt;!-- Exemple :
+                    &lt;placeName cert="high" ref="http://pleiades.stoa.org/places/589959">Olonte&lt;/placeName> -->
+            &lt;/origPlace>
+            &lt;origDate xml:id="date01" resp="#PN" period="hellenistic"
+                notBefore-custom="-0280" notAfter-custom="-0267" precision="low"
+                evidence="prosopography" datingMethod="#julian"
+                corresp="#texte01">
+                &lt;!-- Exemple :
+                   &lt;date xml:lang="fr">Peu avant ca. 267&lt;/date>
+                 -->
+            &lt;/origDate>
+        &lt;/origin>
+        &lt;provenance>
+            &lt;!--  Exemple :
+            &lt;p> Découvert en janvier 1898 par le lieutenant de vaisseau É. Dupourqué lors des travaux entrepris par l’armée française pour ouvrir un canal dans l’isthme de Poros, dans la presqu’île de Spinalonga (Kalydôn), sur la côte nord-orientale de la Crète. Le bloc formait le
+côté d’un bassin trouvé sur l’emplacement d’une église paléochrétienne, située à cent mètres à l’est de l’isthme.&lt;/p>
+           -->
+        &lt;/provenance>
+    &lt;/history>
+    &lt;!-- ********  Substituts de l'objet (par ex. Estampages ou reproductions 3D) -->
+    &lt;additional>
+        &lt;surrogates>
+            &lt;!-- Exemple pour une liste d'estampages référencés dans une collection :
+            &lt;listBibl>
+                &lt;bibl xml:id="e1">
+                    &lt;title type="gmd">mon estampage&lt;/title>
+                    &lt;idno>http://url&lt;/idno>&lt;/bibl>
+                &lt;bibl xml:id="e2"/>
+            &lt;/listBibl>
+       -->
+        &lt;/surrogates>
+    &lt;/additional>
+&lt;/msPart>
+</String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -308,19 +411,19 @@
 									</action>
 									<action>
 										<field name="id">
-											<String>del.altIdentifier</String>
+											<String>del.msPart</String>
 										</field>
 										<field name="name">
-											<String>suppression de altIdentifier</String>
+											<String>suppression de msPart</String>
 										</field>
 										<field name="description">
-											<String>Supprime un identifiant alternatif.</String>
+											<String>Supprime un msPart</String>
 										</field>
 										<field name="largeIconPath">
 											<String></String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/oxygen-custom/css/images/Remove_button.png</String>
+											<String>${framework}/iglouvre-addon/oxygen-custom/css/images/Remove_button.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -338,7 +441,7 @@
 														<serializableOrderedMap>
 															<entry>
 																<String>elementLocation</String>
-																<String>ancestor-or-self::altIdentifier</String>
+																<String>ancestor-or-self::msPart</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -349,6 +452,7 @@
 											</actionMode-array>
 										</field>
 									</action>
+									<!--  -->
 									<action>
 										<field name="id">
 											<String>add.msItem</String>
@@ -381,10 +485,10 @@
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;msItem xmlns="http://www.tei-c.org/ns/1.0" xml:id="${cfn}.msi-">
-&lt;locus target=""/>
-  &lt;title>Titre du texte&lt;/title>
-  &lt;bibl> ref. bibl canonique pour le texte&lt;/bibl>
+&lt;title>Titre du texte&lt;/title>																<String>&lt;msItem xmlns="http://www.tei-c.org/ns/1.0" xml:id="texte${id}">
+&lt;!--&lt;locus target=""/>--&gt;
+  
+ &lt;!-- &lt;bibl> ref. bibl canonique pour le texte&lt;/bibl> --&gt;
 &lt;/msItem>
 </String>
 															</entry>

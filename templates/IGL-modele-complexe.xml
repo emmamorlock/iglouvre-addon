@@ -2,7 +2,7 @@
 <!-- 
 
  Template créé le 16/09/2014 par Emmanuelle Morlock, 
- en collaboration de Eleonora Santin, Alcorac Alonzo Deniz et Michèle Brunet.
+ en collaboration avec Eleonora Santin, Alcorac Alonzo Deniz.
  
  Modèle de document intégré au framework oXygen du projet IGLouvre (publication au format Epidoc de la collection épigraphique du Musée du Louvre).
  
@@ -51,14 +51,14 @@
                     <!-- ******** Identification principale de l'objet  -->
                     <msIdentifier>
                         <!--<repository> si applicable </repository>-->
-                        <!--<collection> si applicapble </collection>-->                        
+                        <!--<collection> si applicapble </collection>-->
                         <!-- <idno type="invNo">identifiant de l'objet (exemple : 'AG023466')</idno> -->
                         <msName><!--  Nom de l'objet inventorié (exemple : 'Stèle funéraire...' --></msName>
                         <!-- ********  Autre identification (optionnel) : -->
-                        <!-- <altIdentifier>
+                        <altIdentifier>
                             <idno type="invNo"/>
                             <note></note>
-                        </altIdentifier> -->
+                        </altIdentifier>
                     </msIdentifier>
                     <!-- ******** Identification des textes (contenu intellectuel ou "work" au sens des FRBR)  -->
                     <msContents>
@@ -73,10 +73,7 @@
                         <msItem xml:id="texte02" n="B">
                             <title>Titre du texte II</title>
                             <!-- <locus scheme="" from="" to="" target="#"/> -->
-                            <!-- <bibl>ref. bibl de référence pour le texte</bibl> -->
-                            <!--[exemple : <bibl>IG II 2, 1257</bibl> 
-                                 - s'il y en a plusieurs : mettre dans un listBibl
-                                 - des pointeurs sur la référence dans la bibliographie-maître pourront être ajoutés ultérieurement.  -->
+                            <!-- <bibl></bibl> -->
                         </msItem>
                     </msContents>
                     <!-- ********  Description physique de l'objet, champ épigraphique et des éléments iconographiques -->
@@ -86,14 +83,18 @@
                             <!-- <idno type="invNo">identifiant de l'objet (exemple : 'AG032599')</idno> -->
                             <altIdentifier>
                                 <idno><!-- exemple MA 905_1 --></idno>
-                                <!-- <note></note> -->
+                                <note></note>
                             </altIdentifier>
-                        </msIdentifier>                        
-                    <physDesc>
-                        <!-- ********  Description de l'entité physique  -->
-                        <objectDesc>
-                            <supportDesc>
-                                <support>
+                            <altIdentifier>
+                                <idno/>
+                                <note/>
+                            </altIdentifier>                           
+                        </msIdentifier>
+                        <physDesc>
+                            <!-- ********  Description de l'entité physique  -->
+                            <objectDesc>
+                                <supportDesc>
+                                    <support>
                                     <p>
                                         <!-- Exemple : 
                                               <objectType>Bloc</objectType> de <material>marbre</material> hexaédrique <dimensions unit="cm">
@@ -103,34 +104,34 @@
                                             </dimensions>. -->
                                     </p>
                                 </support>
-                                <condition>
-                                    <!-- Exemple : 
+                                    <condition>
+                                        <!-- Exemple : 
                                             <rs type="statConservation" ref="EAGLE-vocabulary">incomplet</rs> -->
-                                </condition>
-                            </supportDesc>
-                            <layoutDesc>
-                                <layout columns="1" writtenLines="1">
-                                    <!-- Exemple :
+                                    </condition>
+                                </supportDesc>
+                                <layoutDesc>
+                                    <layout columns="1" writtenLines="1">
+                                        <!-- Exemple :
                                         <p>Inscription <rs type="execution" ref="shared-vocabulary"
                                             >gravé</rs> sur la face frontale sur 8 lignes,
                                             alignement du texte gauche, rentré de la deuxième ligne
                                             d'environ 1 cm.</p> -->
-                                </layout>
-                            </layoutDesc>
-                        </objectDesc>
-                        <!-- ********  Description des "mains" ou "styles" résultant du processus d'inscription  -->
-                        <handDesc>
-                            <handNote xml:id="handGen01">
-                                <!--  Exemple : 
+                                    </layout>
+                                </layoutDesc>
+                            </objectDesc>
+                            <!-- ********  Description des "mains" ou "styles" résultant du processus d'inscription  -->
+                            <handDesc>
+                                <handNote xml:id="handGen01">
+                                    <!--  Exemple : 
                                         La forme des lettres varie entre les treize décrets gravés dans le bloc. 
                                         En gros, l’écriture de B et C paraît plus récente que celle de A (sauf peut-être les décrets III et VI de A, 
                                         plus modernes que les autres sur la même face).--></handNote>
-                            <handNote xml:id="hand01" corresp="#texte01">
-                                <!-- Exemple :
+                                <handNote xml:id="hand01" corresp="#texte01">
+                                    <!-- Exemple :
                                         Lettres <height unit="cm">1</height> ; interligne <height unit="cm">1</height>. Réglage horizontal. --></handNote>
-                        </handDesc>
-                        <!-- ********  Description des éléments iconographiques remarquables (optionnel) -->
-                        <!-- Exemple : 
+                            </handDesc>
+                            <!-- ********  Description des éléments iconographiques remarquables (optionnel) -->
+                            <!-- Exemple : 
                            <decoDesc>
                                 <decoNote>
                                         <p> En-dessous de l'inscriptions scène de <rs type="decoration"
@@ -140,35 +141,36 @@
                                 </decoNote>
                             </decoDesc> 
                             -->
-                    </physDesc>
-                    <!-- ********  Données sur l'orgine et la provenance des textes et/ou de l'objet -->
-                    <!-- Remarque : si l'information affecte une partie des éléments transcrits et non la totalité, 
+                        </physDesc>
+                        <!-- ********  Données sur l'orgine et la provenance des textes et/ou de l'objet -->
+                        <!-- Remarque : si l'information affecte une partie des éléments transcrits et non la totalité, 
                                     utiliser l'élément <locus/> pour préciser la portée de la donnée. -->
-                    <history>
-                        <origin>
-                            <origPlace type="ancient">
-                                <!-- Exemple :
+                        <history>
+                            <origin>
+                                <origPlace type="ancient">
+                                    <!-- Exemple :
                                         <placeName cert="high" ref="http://pleiades.stoa.org/places/589959">Olonte</placeName> -->
-                            </origPlace>
-                            <origDate xml:id="date01" resp="#PN" period="hellenistic"
-                                notBefore-custom="-0280" notAfter-custom="-0267" precision="low"
-                                evidence="prosopography" datingMethod="#julian" corresp="#texte01">
-                                <!-- Exemple :
+                                </origPlace>
+                                <origDate xml:id="date01" resp="#PN" period="hellenistic"
+                                    notBefore-custom="-0280" notAfter-custom="-0267" precision="low"
+                                    evidence="prosopography" datingMethod="#julian"
+                                    corresp="#texte01">
+                                    <!-- Exemple :
                                        <date xml:lang="fr">Peu avant ca. 267</date>
                                      -->
-                            </origDate>
-                        </origin>
-                        <provenance>
-                            <!--  Exemple :
+                                </origDate>
+                            </origin>
+                            <provenance>
+                                <!--  Exemple :
                                 <p> Découvert en janvier 1898 par le lieutenant de vaisseau É. Dupourqué lors des travaux entrepris par l’armée française pour ouvrir un canal dans l’isthme de Poros, dans la presqu’île de Spinalonga (Kalydôn), sur la côte nord-orientale de la Crète. Le bloc formait le
 								côté d’un bassin trouvé sur l’emplacement d’une église paléochrétienne, située à cent mètres à l’est de l’isthme.</p>
                                -->
-                        </provenance>
-                    </history>
-                    <!-- ********  Substituts de l'objet (par ex. Estampages ou reproductions 3D) -->
-                    <additional>
-                        <surrogates>
-                            <!-- Exemple pour une liste d'estampages référencés dans une collection :
+                            </provenance>
+                        </history>
+                        <!-- ********  Substituts de l'objet (par ex. Estampages ou reproductions 3D) -->
+                        <additional>
+                            <surrogates>
+                                <!-- Exemple pour une liste d'estampages référencés dans une collection :
                                 <listBibl>
                                     <bibl xml:id="e1">
                                         <title type="gmd">mon estampage</title>
@@ -176,10 +178,9 @@
                                     <bibl xml:id="e2"/>
                                 </listBibl>
                            -->
-                        </surrogates>
-                    </additional>
-                  </msPart>
-                    
+                            </surrogates>
+                        </additional>
+                    </msPart>
                 </msDesc>
             </sourceDesc>
         </fileDesc>
