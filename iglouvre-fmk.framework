@@ -65,7 +65,7 @@
 											<String></String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/iglouvre/css/images/Add_button.png</String>
+											<String>${framework}/oxygen-custom/css/images/Add_button.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -124,7 +124,7 @@
 											<String></String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/iglouvre/css/images/Remove_button.png</String>
+											<String>${framework}/oxygen-custom/css/images/Remove_button.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -167,7 +167,7 @@
 											<String></String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/iglouvre/css/images/Add_button.png</String>
+											<String>${framework}/oxygen-custom/css/images/Add_button.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -222,7 +222,7 @@
 											<String></String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/iglouvre/css/images/Remove_button.png</String>
+											<String>${framework}/oxygen-custom/css/images/Remove_button.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -265,7 +265,7 @@
 											<String></String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/iglouvre/css/images/Add_button.png</String>
+											<String>${framework}/oxygen-custom/css/images/Add_button.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -320,7 +320,7 @@
 											<String></String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/iglouvre/css/images/Remove_button.png</String>
+											<String>${framework}/oxygen-custom/css/images/Remove_button.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -363,7 +363,7 @@
 											<String></String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/iglouvre/css/images/Add_button.png</String>
+											<String>${framework}/oxygen-custom/css/images/Add_button.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -419,7 +419,7 @@
 											<String></String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/iglouvre/css/images/Remove_button.png</String>
+											<String>${framework}/oxygen-custom/css/images/Remove_button.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -618,7 +618,7 @@
 									<Boolean>true</Boolean>
 								</field>
 								<field name="outputFile">
-									<File>output/${cfn}-${id}.html</File>
+									<File>${cfd}/${cfn}.html</File>
 								</field>
 								<field name="openOtherLocationInBrowser">
 									<Boolean>false</Boolean>
@@ -701,7 +701,7 @@
 									<Boolean>true</Boolean>
 								</field>
 								<field name="outputFile">
-									<File>${pd}/output/${cfn}-${id}.html</File>
+									<File>${cfd}/${cfn}.html</File>
 								</field>
 								<field name="openOtherLocationInBrowser">
 									<Boolean>false</Boolean>
@@ -784,7 +784,7 @@
 									<Boolean>true</Boolean>
 								</field>
 								<field name="outputFile">
-									<File>${pd}/output/${cfn}-${id}.html</File>
+									<File>${cfd}/${cfn}.html</File>
 								</field>
 								<field name="openOtherLocationInBrowser">
 									<Boolean>false</Boolean>

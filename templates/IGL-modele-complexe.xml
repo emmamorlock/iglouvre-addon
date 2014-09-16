@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 
 
- Template créé le 1/09/2014 par Emmanuelle Morlock, 
+ Template créé le 16/09/2014 par Emmanuelle Morlock, 
  en collaboration de Eleonora Santin, Alcorac Alonzo Deniz et Michèle Brunet.
  
  Modèle de document intégré au framework oXygen du projet IGLouvre (publication au format Epidoc de la collection épigraphique du Musée du Louvre).
  
- ===============> Utilisation : Encodage des textes inscrits sur un seul objet physique (entité E19 - Physical object dans le méta-modèle modèle CIDOC-CRM)
+===============> Utilisation : Encodage des textes inscrits sur plusieurs objets physique (entité E19 - Physical object dans le méta-modèle modèle CIDOC-CRM)
 
  -->
 
 <!-- <?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?> -->
 
 
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="IGL-0001.xml">
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader>
         <!-- ///////////////////////////////////////// METADONNEES //////////// -->
         <fileDesc>
@@ -46,24 +46,32 @@
             </publicationStmt>
             <!-- - - - - - - - - - - - - - - - -  Information sur la source des textes transcrits dans l'édition -->
             <sourceDesc>
-                <!-- ******** L'objet ou le support  -->
+                <!-- ******** L'objet composite = ensemble des entités E19 - physical object  -->
                 <msDesc>
                     <!-- ******** Identification principale de l'objet  -->
                     <msIdentifier>
-                        <repository>Musée du Louvre</repository>
-                        <collection><!-- exemple : AGER --></collection>
-                        <idno type="invNo"><!-- identifiant de l'objet (exemple : 'AG023466') --></idno>
+                        <!--<repository> si applicable </repository>-->
+                        <!--<collection> si applicapble </collection>-->                        
+                        <!-- <idno type="invNo">identifiant de l'objet (exemple : 'AG023466')</idno> -->
                         <msName><!--  Nom de l'objet inventorié (exemple : 'Stèle funéraire...' --></msName>
                         <!-- ********  Autre identification (optionnel) : -->
-                        <altIdentifier>
+                        <!-- <altIdentifier>
                             <idno type="invNo"/>
-                            <note><!-- Explicitation du numéro (<idno>) pour l'identification alternative --></note>
-                        </altIdentifier>
+                            <note></note>
+                        </altIdentifier> -->
                     </msIdentifier>
                     <!-- ******** Identification des textes (contenu intellectuel ou "work" au sens des FRBR)  -->
                     <msContents>
-                        <msItem xml:id="texte01" n="I">
-                            <title>Titre du texte</title>
+                        <msItem xml:id="texte01" n="A">
+                            <title>Titre du texte I</title>
+                            <!-- <locus scheme="" from="" to="" target="#"/> -->
+                            <!-- <bibl>ref. bibl de référence pour le texte</bibl> -->
+                            <!--[exemple : <bibl>IG II 2, 1257</bibl> 
+                                 - s'il y en a plusieurs : mettre dans un listBibl
+                                 - des pointeurs sur la référence dans la bibliographie-maître pourront être ajoutés ultérieurement.  -->
+                        </msItem>
+                        <msItem xml:id="texte02" n="B">
+                            <title>Titre du texte II</title>
                             <!-- <locus scheme="" from="" to="" target="#"/> -->
                             <!-- <bibl>ref. bibl de référence pour le texte</bibl> -->
                             <!--[exemple : <bibl>IG II 2, 1257</bibl> 
@@ -72,8 +80,17 @@
                         </msItem>
                     </msContents>
                     <!-- ********  Description physique de l'objet, champ épigraphique et des éléments iconographiques -->
+                    <msPart>
+                        <msIdentifier>
+                            <repository>Musée du Louvre</repository>
+                            <!-- <idno type="invNo">identifiant de l'objet (exemple : 'AG032599')</idno> -->
+                            <altIdentifier>
+                                <idno><!-- exemple MA 905_1 --></idno>
+                                <!-- <note></note> -->
+                            </altIdentifier>
+                        </msIdentifier>                        
                     <physDesc>
-                        <!-- ********  Description de l'objet  -->
+                        <!-- ********  Description de l'entité physique  -->
                         <objectDesc>
                             <supportDesc>
                                 <support>
@@ -161,6 +178,8 @@
                            -->
                         </surrogates>
                     </additional>
+                  </msPart>
+                    
                 </msDesc>
             </sourceDesc>
         </fileDesc>

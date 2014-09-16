@@ -3,9 +3,9 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.oxygenxml.com/ns/extension/extensions.xsd">
     
-    <xt:extension xmlns:xt="http://www.oxygenxml.com/ns/extension" id="v1.0.4">
-    <xt:location href="https://github.com/emmamorlock/iglouvre-addon/archive/v1.0.4.zip"/>
-    <xt:version>1.0.4</xt:version>
+    <xt:extension xmlns:xt="http://www.oxygenxml.com/ns/extension" id="v1.0.5">
+    <xt:location href="https://github.com/emmamorlock/iglouvre-addon/archive/v1.0.5.zip"/>
+    <xt:version>1.0.5</xt:version>
     <xt:oxy_version>14.2+</xt:oxy_version>
     <xt:type>framework</xt:type>
     <xt:author>Emmanuelle Morlock</xt:author>
