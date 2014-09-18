@@ -252,6 +252,9 @@
                 <div type="textpart" xml:id="prefixe-au-choix-01">
                     <ab>texte transcrit</ab>
                 </div>
+                <div type="textpart" xml:id="prefixe-au-choix-02">
+                    <ab>texte transcrit</ab>
+                </div>
                 <div type="apparatus">
                     <p>apparat critique externe</p>
                 </div>

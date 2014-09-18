@@ -268,7 +268,7 @@
 											<String></String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/iglouvre-addon/oxygen-custom/css/images/Add_button.png</String>
+											<String>${framework}/oxygen-custom/css/images/Add_button.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -423,7 +423,7 @@ côté d’un bassin trouvé sur l’emplacement d’une église paléochrétien
 											<String></String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/iglouvre-addon/oxygen-custom/css/images/Remove_button.png</String>
+											<String>${framework}/oxygen-custom/css/images/Remove_button.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
