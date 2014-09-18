@@ -77,7 +77,7 @@
                         </msItem>
                     </msContents>
                     <!-- ********  Description physique de l'objet, champ épigraphique et des éléments iconographiques -->
-                    <msPart>
+                    <msPart xml:id="msPart01">
                         <msIdentifier>
                             <repository>Musée du Louvre</repository>
                             <!-- <idno type="invNo">identifiant de l'objet (exemple : 'AG032599')</idno> -->
